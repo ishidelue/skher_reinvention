@@ -19,6 +19,9 @@
       --text-mid:    #4a5568;
       --text-light:  #718096;
       --border:      #dde3ed;
+      --nv-green:    #76b900;
+      --nv-dark:     #1a1a1a;
+      --nv-card:     #242424;
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -486,6 +489,30 @@
       background: linear-gradient(135deg, var(--navy), var(--blue-mid));
       color: #fff;
     }
+    .avatar.photo {
+      overflow: hidden;
+      border: 2px solid var(--border);
+    }
+    .avatar.photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+    .team-card.featured .avatar.photo {
+      width: 110px;
+      height: 110px;
+    }
+    .team-creds-divider {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--blue-mid);
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.5rem 0 0.2rem;
+      border-bottom: none !important;
+    }
     .avatar.empty {
       background: var(--bg-page);
       color: var(--text-light);
@@ -565,6 +592,189 @@
       letter-spacing: 0.04em;
     }
 
+    /* ── JETSON SECTION ── */
+    #jetson {
+      background: var(--nv-dark);
+      color: #fff;
+    }
+    #jetson .section-tag  { color: var(--nv-green); }
+    #jetson .accent-line  { background: var(--nv-green); }
+    #jetson .section-heading { color: #fff; }
+    #jetson .section-lead { color: rgba(255,255,255,0.6); }
+
+    .nv-hero-img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      max-height: 320px;
+      display: block;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(118,185,0,0.25);
+    }
+
+    .jetson-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .jetson-card {
+      background: var(--nv-card);
+      border: 1px solid rgba(118,185,0,0.2);
+      border-top: 3px solid var(--nv-green);
+      border-radius: 6px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .jetson-card img {
+      width: 120px;
+      object-fit: contain;
+      align-self: center;
+      filter: drop-shadow(0 4px 16px rgba(118,185,0,0.2));
+    }
+
+    .jetson-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--nv-green);
+    }
+
+    .jetson-card-sub {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: -0.85rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .jetson-card p {
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+    }
+
+    .tops-badge {
+      display: inline-block;
+      background: rgba(118,185,0,0.12);
+      border: 1px solid rgba(118,185,0,0.4);
+      color: var(--nv-green);
+      border-radius: 4px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      align-self: flex-start;
+    }
+
+    .nv-footer-note {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+    }
+    .nv-footer-note a {
+      color: rgba(118,185,0,0.7);
+      text-decoration: none;
+    }
+    .nv-footer-note a:hover { color: var(--nv-green); }
+
+    @media (max-width: 780px) {
+      .jetson-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── ART CENTER QUOTE ── */
+    .art-quote {
+      margin: 2.5rem 0 2rem;
+      padding: 1.75rem 2.25rem;
+      background: var(--navy);
+      border-left: 5px solid var(--blue-mid);
+      border-radius: 0 6px 6px 0;
+    }
+    .art-quote-text {
+      display: block;
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.35;
+      letter-spacing: 0.03em;
+    }
+    .art-quote-attr {
+      display: block;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.65rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SHH ART CENTER ── */
+    #shh-art {
+      background: #f0fafb;
+      border-top: 3px solid #139BAC;
+    }
+    #shh-art .accent-line  { background: #139BAC; }
+    #shh-art .section-tag  { color: #139BAC; }
+    #shh-art .section-heading { color: #0e6b77; }
+    #shh-art .item-title   { color: #139BAC; border-bottom-color: #b8e6eb; }
+
+    .shh-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    .shh-stat-card {
+      background: #fff;
+      border: 1px solid #b8e6eb;
+      border-left: 4px solid #139BAC;
+      padding: 1.3rem 1.1rem;
+      border-radius: 4px;
+    }
+    .shh-stat-num {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #139BAC;
+      line-height: 1;
+    }
+    .shh-stat-label {
+      font-size: 0.76rem;
+      color: #666;
+      margin-top: 0.4rem;
+      line-height: 1.5;
+    }
+    .shh-callout {
+      background: #139BAC;
+      color: #fff;
+      border-radius: 6px;
+      padding: 1.75rem 2rem;
+      font-size: 0.87rem;
+      line-height: 1.85;
+    }
+    .shh-callout strong {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+    .shh-quote-bar {
+      margin-top: 2rem;
+      background: #0e6b77;
+      border-radius: 6px;
+      padding: 1.4rem 2rem;
+      text-align: center;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 780px) {
+      .shh-stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+
     /* ── ANIMATIONS ── */
     .fade-up {
       opacity: 0;
@@ -603,8 +813,10 @@
     <li><a href="#vision">願景</a></li>
     <li><a href="#plans">三大計畫</a></li>
     <li><a href="#icu">急診加護</a></li>
+    <li><a href="#jetson">Jetson</a></li>
     <li><a href="#tech">技術中心</a></li>
-    <li><a href="#community">社區急診</a></li>
+    <li><a href="#shh-art">ART Center</a></li>
+    <li><a href="#community">社區網絡</a></li>
     <li><a href="#team">團隊</a></li>
   </ul>
 </nav>
@@ -629,10 +841,10 @@
         <div class="accent-line"></div>
         <p class="section-tag">歷史與起源</p>
         <h2 class="section-heading">新光是現今台灣急診的起點</h2>
-        <p class="big-text">急診的下一個時代，<br>也將從這裡開始</p>
+        <p class="big-text">急診的下一個時代，也將從這裡開始</p>
         <p class="body-text">
-          在台灣，有近二分之一的頂尖急診是由新光急診的校友打造。<br><br>
-          許多重大公衛醫療事件，新光急診也扮演了關鍵的角色。<br><br>
+          在台灣，有近二分之一的頂尖急診是由新光急診的校友打造。<br>
+          許多重大公衛醫療事件，新光急診也扮演了關鍵的角色。<br>
           而下一個時代的台灣急診醫療，也將要從這裡開始。
         </p>
       </div>
@@ -667,10 +879,7 @@
         <p class="section-tag">核心願景</p>
         <h2 class="section-heading">未來的台灣急診<br>會是重要的病患通路</h2>
         <p class="body-text" style="margin-top:1.25rem;">
-          急診對台灣民眾來說早就不是單純的急重症救治，更像是緊急的醫療健康諮詢接口。
-        </p>
-        <p class="body-text" style="margin-top:1rem;">
-          新光急診這個接口的功能愈強、分布愈廣，就愈能吸引民眾透過這個入口進到新光醫療體系。
+          急診對台灣民眾來說早就不是單純的急重症救治，更像是緊急的醫療健康諮詢接口。新光急診這個接口的功能愈強、分布愈廣，就愈能吸引民眾透過這個入口進到新光醫療體系。
         </p>
         <p class="body-text" style="margin-top:1rem;">
           穩定且多樣的病患來源，才能夠維持醫療品質、收入與訓練的永續性，新光醫院會更有本錢去應對未來更險峻的醫療生態變化。
@@ -742,41 +951,99 @@
     <div class="fade-up">
       <div class="accent-line"></div>
       <p class="section-tag">計畫一</p>
-      <h2 class="section-heading">急診加護病房</h2>
-      <p class="section-lead">困難的、複雜的、場面浩大的，我們關起門來弄</p>
+      <h2 class="section-heading">智慧急診加護病房</h2>
+      <p class="section-lead">讓加護病房成為「重症照護的實驗室」——頂尖照護品質與臨床研究，在同一個空間同步實現</p>
     </div>
+    <p class="body-text fade-up" style="margin-top:2rem; max-width:720px;">
+      以 AI 語音辨識、邊緣運算即時決策支援、POCUS 介入團隊整合為核心，打造 12+2 床智慧重症單位。臨床即研究、研究即臨床——每一位病患的照護經驗，都成為下一位的解方。
+    </p>
     <div class="detail-grid">
       <div class="fade-up delay-1">
         <div class="item">
-          <div class="item-title">12 + 2 床急診加護病房</div>
-          <p>其中 12 床為標準加護病房配置，可收治各式內外科病患；2 床為彈性病床，用以日常運行緊急侵入性檢查治療、並當作彈性收治病患使用。</p>
+          <div class="item-title">AI 環境語音辨識</div>
+          <p>病房對話與處置指令自動轉化為結構化病歷紀錄，涵蓋智慧交班、家屬會談摘要與不良事件偵測。醫護文書負擔減少 30–50%，讓更多時間真正回到病患身邊。</p>
         </div>
         <div class="item">
-          <div class="item-title">發展重症早期偵測與預先處置</div>
-          <p>基於急診過往案例庫建立「SKHEW 新光醫院早期預警系統」，讓部分病患在惡化前就已被收入加護病房，實現主動性的重症管理。</p>
-        </div>
-        <div class="item">
-          <div class="item-title">建立院內重症病床的緩衝區</div>
-          <p>在連續假日、夜間，或臨床權責尚不明的時候，可讓危急病患更快進到受控的加護病房環境、提供更好的醫療品質。</p>
+          <div class="item-title">邊緣運算即時決策支援</div>
+          <p>床邊 AI 晶片持續監測生命徵象、呼吸器波形與影像資料，在敗血症、急性腎損傷、ECMO 併發症惡化前數小時即發出預警，讓醫護搶先一步介入。</p>
         </div>
       </div>
       <div class="fade-up delay-2">
         <div class="item">
-          <div class="item-title">減低急診現場紊亂程度</div>
-          <p>讓急診可以更快將輕重症病患分開，減少急診看起來像是戰場的時間，進而提升輕症服務品質與輕症病患吸引力。</p>
+          <div class="item-title">POCUS 即時介入治療團隊</div>
+          <p>整合現有超音波設備與人力，組建 24/7 超音波導引介入服務——血管通路、胸腹腔引流、困難氣道管理、重症止痛神經阻斷，一站式到位。</p>
         </div>
         <div class="item">
-          <div class="item-title">避免醫護認知疲倦</div>
-          <p>獨立環境讓醫護全力處理當班所遇到的急重難罕，增加每位病患被醫師與護理師評估的時間與精確程度。</p>
-        </div>
-        <div class="callout">
-          <strong>預期效益</strong>
-          醫護處理起來會更得心應手<br>
-          病患照護品質會更好<br>
-          急診現場環境也會更好、更能吸引輕中症民眾就醫
+          <div class="item-title">Rapid-IRB 加速倫理審查機制</div>
+          <p>為 ICU 觀察型研究與品質改善計畫建立快速審查通道，審查週期由 8–12 週縮短至 2 週內，讓重症照護的現場直接成為台灣最快速的臨床研究平台。</p>
         </div>
       </div>
     </div>
+    <div class="fade-up" style="margin-top:2rem;">
+      <div class="callout">
+        <strong>預期效益</strong>
+        ICU 死亡率降低 10–15%　·　呼吸器使用天數縮短 1–2 天　·　院內感染率下降 30%<br><br>
+        醫師文書時間減少 30–50%，床邊照護時間顯著提升，交班遺漏率降低 40%<br><br>
+        24 個月目標：SCI 論文 ≥ 8 篇，建立台灣首個重症 AI 開源資料集
+      </div>
+    </div>
+    <div class="roadmap fade-up" style="margin-top:1.75rem;">
+      <div class="rm-step">Phase 1<br>硬體建置<br>語料收集</div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step">Phase 2<br>4 床試點<br>模型驗證</div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step">Phase 3<br>全床整合<br>研究發表</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── JETSON ── -->
+<section id="jetson" class="section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="accent-line"></div>
+      <p class="section-tag">POWERED BY NVIDIA</p>
+      <h2 class="section-heading">Jetson Orin — 床邊 AI 的核心引擎</h2>
+      <p class="section-lead">邊緣運算讓 AI 推論留在病房內，無須仰賴雲端，毫秒級回應，全天候不間斷</p>
+    </div>
+
+    <div class="jetson-grid">
+
+      <div class="jetson-card fade-up delay-1">
+        <img
+          src="https://d29g4g2dyqv443.cloudfront.net/sites/default/files/akamai/embedded/images/jetson_agx_orin/Jetson_product_tiles_Module_pages-Jetson_AGX_Orin-ftont-v002.jpg"
+          alt="NVIDIA Jetson AGX Orin"
+        >
+        <div>
+          <div class="jetson-card-title">Jetson AGX Orin</div>
+          <div class="jetson-card-sub">ICU 中央智慧站</div>
+        </div>
+        <span class="tops-badge">275 TOPS</span>
+        <p>
+          部署於 ICU 護理站，整合全病房數據，執行敗血症預測、ECMO 併發症預警等高算力模型。單台即可負擔 12 床的即時聚合分析，不依賴院內雲端伺服器。
+        </p>
+      </div>
+
+      <div class="jetson-card fade-up delay-2">
+        <img
+          src="https://d29g4g2dyqv443.cloudfront.net/sites/default/files/Jetson_product_tiles_Module_pages-Jetson_Xavier_NX.jpg"
+          alt="NVIDIA Jetson Orin NX"
+        >
+        <div>
+          <div class="jetson-card-title">Jetson Orin NX</div>
+          <div class="jetson-card-sub">每 6 床區域節點</div>
+        </div>
+        <span class="tops-badge">100 TOPS</span>
+        <p>
+          分散式部署於各病床區，即時處理生命徵象、呼吸器波形與影像推論。低功耗、體積小，可直接安裝於病床環境，實現秒級惡化預警，不受網路連線狀態影響。
+        </p>
+      </div>
+
+    </div>
+
+    <p class="nv-footer-note fade-up">
+      Images &amp; product information courtesy of <a href="https://developer.nvidia.com/embedded/jetson-modules" target="_blank" rel="noopener">NVIDIA Developer — Jetson Modules</a>
+    </p>
   </div>
 </section>
 
@@ -787,47 +1054,85 @@
       <div class="accent-line"></div>
       <p class="section-tag">計畫二</p>
       <h2 class="section-heading">先進與革新急症技術中心</h2>
-      <p class="section-lead">我們將實踐創辦人「維持現狀，即是落伍」的創新精神</p>
+      <p class="section-lead">SKHER-ART Center — 即時超音波介入 × 模組化鎮靜止痛 × 重症照護延伸</p>
     </div>
+
+    <div class="art-quote fade-up">
+      <span class="art-quote-text">「維持現狀，即是落伍」</span>
+      <span class="art-quote-attr">—— 新光醫院創辦人精神。SKHER-ART Center 以此為核心驅動力，整合智慧 ICU，做得更深、走得更遠。</span>
+    </div>
+
     <div class="detail-grid">
       <div class="fade-up delay-1">
         <div class="item">
-          <div class="item-title">發展超音波介入治療</div>
-          <p>利用急診加護病房的彈性區域，建立可由超音波執行的各科別侵入性處置環境。處置後須觀察的病患可就地收治，也可以把檢查室、電腦斷層、開刀房留給更多需要的病患。</p>
+          <div class="item-title">POCUS 導引介入治療</div>
+          <p>涵蓋全身性超音波導引服務：血管通路、胸腹腔引流、神經阻斷（上下肢、軀幹、頭頸）、困難氣道評估。引流首次穿刺成功率目標 ≥ 95%，神經阻斷有效止痛率 ≥ 99%，處置後可就地在急診加護病房觀察，毋須佔用開刀房與 CT 室。</p>
         </div>
         <div class="item">
-          <div class="item-title">急性疼痛神經阻斷</div>
-          <p>可提供疼痛應變小組，為外傷、部分術後，提供超音波導引神經阻斷。另也計畫發展神經阻斷輔助的術後加速復原計畫、讓骨科病患能盡快下床活動。</p>
-        </div>
-        <div class="item">
-          <div class="item-title">急性處置情境的 PSA</div>
-          <p>急診醫學會的鎮靜處置委員會與本院急診密切相關，已計畫承接學會任務、全力發展屬於台灣急性醫療所需要使用的輕中度鎮靜流程。</p>
+          <div class="item-title">模組化 PSA 處置中鎮靜止痛</div>
+          <p>建立三段式架構（處置前評估 → 處置中多模式監測 → 處置後結構化追蹤），EtCO2 全床位標配，AI 即時呼吸抑制預警。目標：opioid 使用率 &lt; 8%、嚴重不良事件 &lt; 1%、鎮靜後 30 分鐘離開觀察區比例 ≥ 80%。</p>
         </div>
       </div>
       <div class="fade-up delay-2">
         <div class="item">
-          <div class="item-title">整合現有中心，單一統籌、不同階段任務</div>
-          <p>目前急診非常多臨床實務中心，這些中心在成立當初所代表的都是當時最進步的急診技術。未來將由本中心統籌所有新技術發展，減少臨床醫師的行政負擔。</p>
-        </div>
-        <div class="roadmap">
-          <div class="rm-step">以 3–5 年為架構<br>規劃發展重點</div>
-          <div class="rm-arrow">→</div>
-          <div class="rm-step">利用急診與<br>急診加護病房進行實作</div>
-          <div class="rm-arrow">→</div>
-          <div class="rm-step">產出可轉譯到<br>台灣其他急診的臨床流程</div>
-        </div>
-        <div class="callout">
-          <strong>第一期計畫目標</strong>
-          「影像導引臨床介入」與「符合台灣使用的輕中度鎮靜流程」<br><br>
-          預計會是在 3～5 年內台灣急診醫學重點發展的領域，目前也都是由新光校友領銜發展！
+          <div class="item-title">急診–ICU 介入照護延伸</div>
+          <p>SKHER-ART 與智慧 ICU 共享同一批介入醫師、同一套 SOP、同一個 AI 輔助資料庫。急診 PSA 鎮靜計畫無縫銜接 ICU，ECMO cannulation 可提前在急診端執行，縮短 door-to-circuit 時效——形成急診到加護病房的完整介入照護鏈。</p>
         </div>
       </div>
     </div>
-    <div class="fade-up" style="margin-top:3rem; background:var(--bg-white); border-radius:6px; padding:1.75rem 2rem; text-align:center; border:1px solid var(--border);">
-      <p style="font-size:1rem; font-weight:700; color:var(--navy); line-height:1.7;">
-        急診技術的輸出源頭 &nbsp;·&nbsp; 急重症人才的搖籃 &nbsp;·&nbsp; 民眾與醫療同儕信賴的團隊
+</section>
+
+<!-- ── SHH ART CENTER ── -->
+<section id="shh-art" class="section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="accent-line"></div>
+      <p class="section-tag">也是新光校友打造的 !</p>
+      <h2 class="section-heading">雙和醫院先進與革新急症技術中心</h2>
+      <p class="section-lead" style="color:#555;">
+        Advanced and Revolutionary Technique Center, TMU-SHH ER
       </p>
     </div>
+
+    <p class="body-text fade-up" style="margin-top:1.75rem; max-width:720px; color:#444;">
+      COVID-19 疫情期間，病房、手術室、處置室遙不可及——ART Center 以「我們，來治療病人！就在急診！」為號召，由急診醫師親自拿起超音波，就地為病患完成引流、神經阻斷與鎮靜處置。疫情退去，精神留下，並沉澱為可複製的臨床指引與資料庫。
+    </p>
+
+    <div class="shh-stat-grid fade-up">
+      <div class="shh-stat-card">
+        <div class="shh-stat-num">191</div>
+        <div class="shh-stat-label">超音波引流案例<br>首次穿刺成功率 97%</div>
+      </div>
+      <div class="shh-stat-card">
+        <div class="shh-stat-num">422</div>
+        <div class="shh-stat-label">超音波神經阻斷<br>有效止痛率 99.7%</div>
+      </div>
+      <div class="shh-stat-card">
+        <div class="shh-stat-num">5%</div>
+        <div class="shh-stat-label">Opioid 使用率<br>大幅降低止痛藥依賴</div>
+      </div>
+      <div class="shh-stat-card">
+        <div class="shh-stat-num">−240<span style="font-size:1rem;">分</span></div>
+        <div class="shh-stat-label">深部膿瘍引流時效<br>較傳統流程縮短</div>
+      </div>
+    </div>
+
+    <div class="detail-grid">
+      <div class="fade-up delay-1">
+        <div class="item">
+          <div class="item-title">全員 POCUS 基礎</div>
+          <p style="color:#444;">全急診 26 位主治醫師皆能全時執行高品質超音波介入處置——這不是少數專家的特技，而是整個團隊的基本功，也是 ART Center 最難被複製的核心競爭力。</p>
+        </div>
+      </div>
+      <div class="fade-up delay-2">
+        <div class="item">
+          <div class="item-title">臨床診斷導向止痛策略</div>
+          <p style="color:#444;">依骨折與傷害位置對應最適神經阻斷路徑的完整決策流程，搭配示範影片，讓技術可教、可學、可複製。目前為全台唯一發表此類指引的急診團隊。</p>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </section>
 
@@ -837,42 +1142,46 @@
     <div class="fade-up">
       <div class="accent-line"></div>
       <p class="section-tag">計畫三</p>
-      <h2 class="section-heading">區域急診基地</h2>
-      <p class="section-lead">讓民眾只要是就醫，就接入新光醫療體系</p>
+      <h2 class="section-heading">社區急診醫療中心</h2>
+      <p class="section-lead">以新光為樞紐，打造北台灣最快、最聰明的社區急診網絡——病患進入任一節點，即等同進入新光醫療體系</p>
     </div>
     <div class="detail-grid">
       <div class="fade-up delay-1">
         <div class="item">
-          <div class="item-title">新光急診為中心的獨立急診網絡 (SKHTN)</div>
-          <p>在新醫療資訊輔助系統的幫助下，建立屬於新光醫療體系自己的快速轉診網路。由急診醫學科備受信賴的主治醫師群，將附近的小型醫院急診室、未來開設的 UCC 納入旗下成新光醫院的社區接口。</p>
+          <div class="item-title">Hub-and-Spoke 樞紐架構</div>
+          <p>整合三家社區夥伴——宏仁醫院（西區）、新仁醫院 UCC（北區）、中英醫院新莊院區——以 SKHER 為中央指揮中心。共享電子病歷視窗、統一 protocol、聯合品質審查，網絡涵蓋人口達 <strong style="color:var(--navy)">180 萬</strong>。</p>
         </div>
         <div class="item">
-          <div class="item-title">智慧檢傷急診入口</div>
-          <p>透過智慧檢傷評估民眾不舒服時的風險程度，將病患引導入新光醫療體系駐點的快速通道就診。</p>
+          <div class="item-title">Fast Transfer Network (FTN)</div>
+          <p>自建快速轉診系統，設定 STEMI、LVO 腦中風、重大外傷、敗血症、OHCA 五條快速通道。轉診請求回覆由 30–60 分鐘縮短至 <strong style="color:var(--navy)">5 分鐘以內</strong>，跨院 door-to-arrival 目標 ≤ 45 分鐘，遠優於健保平台現況。</p>
         </div>
         <div class="item">
-          <div class="item-title">EMS 緊急救護訓練中心</div>
-          <p>承接既有 EMS 中心之業務，完善新光醫療體系與政府 EMS 的溝通與協調，並持續提供如以往高品質的相關訓練。</p>
+          <div class="item-title">24/7 遠距會診與 AI 決策支援</div>
+          <p>衛星節點一鍵呼叫 SKHER 主治醫師視訊會診，5 分鐘內接通。影像即時共享，延遲 ≤ 1 分鐘。並串接智慧 ICU 的 AI 模型，形成「社區急診 → AI 預警 → SKHER 醫師」三重把關。</p>
         </div>
       </div>
       <div class="fade-up delay-2">
         <div class="network-box">
-          <div class="network-title">新光醫療體系社區急診網絡</div>
-          <div class="network-row">
-            <div class="network-node">社區小型醫院</div>
-            <span style="color:var(--blue-mid); font-size:1.2rem;">⇄</span>
-            <div class="network-hub">新光<br>急診</div>
-            <span style="color:var(--blue-mid); font-size:1.2rem;">⇄</span>
-            <div class="network-node">UCC 診所</div>
+          <div class="network-title">SKHER 社區急診網絡 (FTN)</div>
+          <div class="network-row" style="gap:0.6rem; flex-wrap:wrap;">
+            <div class="network-node" style="text-align:center; font-size:0.72rem;">宏仁醫院<br><span style="color:var(--text-light); font-weight:400;">西區衛星</span></div>
+            <span style="color:var(--blue-mid); font-size:1.1rem;">⇄</span>
+            <div class="network-hub" style="width:88px; height:88px; font-size:0.75rem;">新光<br>急診<br><span style="font-size:0.65rem; opacity:0.7;">SKHER</span></div>
+            <span style="color:var(--blue-mid); font-size:1.1rem;">⇄</span>
+            <div class="network-node" style="text-align:center; font-size:0.72rem;">中英醫院<br><span style="color:var(--text-light); font-weight:400;">新莊延伸</span></div>
           </div>
-          <div class="network-caption">急診團隊進駐 &nbsp;·&nbsp; 報備支援</div>
-          <div class="network-badge">SKHTN 快速轉診網路</div>
-          <div class="network-caption" style="margin-top:0.5rem;">提供遠快於健保醫療體系的綠色通道</div>
+          <div class="network-row" style="margin-top:0.5rem;">
+            <div class="network-node" style="text-align:center; font-size:0.72rem;">新仁醫院 UCC<br><span style="color:var(--text-light); font-weight:400;">北區輕症導流</span></div>
+          </div>
+          <div class="network-badge" style="margin-top:1rem;">FTN 快速轉診網路</div>
+          <div class="network-caption" style="margin-top:0.5rem;">比健保平台快一倍 · 涵蓋人口 180 萬</div>
         </div>
         <div class="callout" style="margin-top:1.5rem;">
-          <strong>策略優勢</strong>
-          鎖定區域廣布接口，讓民眾只要是就醫，就接入新光醫療體系。<br><br>
-          以合作的樣貌進行，不僅高效、立即可行，也會有較好的團隊形象、較彈性的應變能力。
+          <strong>預期效益</strong>
+          STEMI 跨院 door-to-balloon ≤ 90 分鐘達成率 ≥ 80%<br>
+          不適切轉診率下降 50%，轉診不良事件下降 40%<br><br>
+          SKHER 急診壅塞率下降 20%，衛星節點滿意度大幅提升<br><br>
+          每年導入新光後續服務病患 ≥ 5,000 人次，擴大醫療體系影響力
         </div>
       </div>
     </div>
@@ -889,20 +1198,25 @@
       <p class="section-lead">All from SKHER</p>
     </div>
     <div class="team-grid">
-      <div class="team-card fade-up delay-1">
+      <div class="team-card featured fade-up delay-1">
+        <div class="avatar photo">
+          <img src="/img/doctor/li.jpeg" alt="李瑋恩 醫師">
+        </div>
+        <div class="team-name">李瑋恩 醫師</div>
+        <ul class="team-creds">
+          <li>宏仁醫院主治醫師</li>
+          <li>新光吳火獅紀念醫院主治醫師</li>
+          <li>雙和醫院急診先進與革新技術中心執行秘書</li>
+          <li>急診醫學會醫療處置鎮靜止痛推動小組委員</li>
+          <!-- <li>Sakana AI Co., Ltd. &nbsp;Triple-F Co-investor</li>
+          <li>Triord Intellimed, Ltd. &nbsp;共同創辦人暨營運長</li>
+          <li>plawes-Recruit Co., Ltd. &nbsp;區域專案合夥人</li> -->
+        </ul>
+      </div>
+      <div class="team-card fade-up delay-2">
         <div class="avatar empty">？</div>
         <div class="team-name">即將公布</div>
         <p class="team-tba">敬請期待</p>
-      </div>
-      <div class="team-card featured fade-up delay-2">
-        <div class="avatar filled">李</div>
-        <div class="team-name">李瑋恩 醫師</div>
-        <ul class="team-creds">
-          <li>台灣急診醫學會急診專科醫師</li>
-          <li>台灣急診醫學會鎮靜止痛工作小組委員</li>
-          <li>新光醫院急診醫學科主治醫師</li>
-          <li>雙和醫院先進與革新急症技術中心<br>創辦團隊暨執行秘書</li>
-        </ul>
       </div>
       <div class="team-card fade-up delay-3">
         <div class="avatar empty">？</div>

@@ -35,10 +35,15 @@ CSS uses custom properties (`--navy`, `--blue`, etc.) — always edit through th
 
 ## Confirmed Team Member
 **李瑋恩醫師**
-- 台灣急診醫學會急診專科醫師
-- 台灣急診醫學會鎮靜止痛工作小組委員
-- 新光醫院急診醫學科主治醫師
-- 雙和醫院先進與革新急症技術中心創辦團隊暨執行秘書
+- 宏仁醫院主治醫師
+- 新光吳火獅紀念醫院主治醫師
+- 雙和醫院急診先進與革新技術中心執行秘書
+- 急診醫學會醫療處置鎮靜止痛推動小組委員
+- Sakana AI Co., Ltd. Triple-F Co-investor
+- Triord Intellimed, Ltd. 共同創辦人暨營運長
+- plawes-Recruit Co., Ltd. 區域專案合夥人
+
+Avatar: `/img/doctor/li.jpeg`
 
 ## Language & Communication
 - Website content: **Traditional Chinese** (繁體中文)
