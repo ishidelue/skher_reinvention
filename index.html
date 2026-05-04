@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新光醫院急診醫學科 — 科部再發展計畫</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:        #1a3a6b;
+      --blue:        #1d4ed8;
+      --blue-mid:    #2563eb;
+      --blue-light:  #93c5fd;
+      --bg-page:     #f4f6f9;
+      --bg-white:    #ffffff;
+      --text-dark:   #1e2d40;
+      --text-mid:    #4a5568;
+      --text-light:  #718096;
+      --border:      #dde3ed;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-white);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 58px;
+      background: rgba(20, 40, 80, 0.96);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-brand {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    /* ── SHARED LAYOUT ── */
+    .section { padding: 6rem 2rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .accent-line {
+      width: 36px;
+      height: 4px;
+      background: var(--blue-mid);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-heading {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 1rem;
+    }
+
+    .section-lead {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      max-width: 640px;
+      line-height: 1.9;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0b2044 0%, #1a3a6b 55%, #1e4585 100%);
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 30%, rgba(59,130,246,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 70%, rgba(30,69,133,0.35) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* subtle dot grid */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-sup {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .hero-title {
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+    }
+    .hero-divider {
+      width: 50px;
+      height: 3px;
+      background: rgba(255,255,255,0.35);
+      margin: 1.75rem auto;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 500;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 0.6rem;
+    }
+    .hero-tagline {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.06em;
+      font-style: italic;
+    }
+    .hero-caret {
+      position: absolute;
+      bottom: 2.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.35);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      animation: float 2.4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* ── LEGACY ── */
+    #legacy { background: var(--bg-page); }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .big-text {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+    .body-text {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.95;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+    }
+    .stat-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--blue-mid);
+      padding: 1.4rem 1.25rem;
+      border-radius: 4px;
+    }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--blue-mid);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-top: 0.4rem;
+      line-height: 1.5;
+    }
+
+    /* ── VISION ── */
+    #vision { background: var(--bg-white); }
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .tagline-blue {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--blue-mid);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid var(--border);
+    }
+    .info-box {
+      background: var(--bg-page);
+      border-radius: 6px;
+      padding: 2rem;
+    }
+    .info-box h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .info-box p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+
+    /* ── THREE PLANS ── */
+    #plans {
+      background: var(--navy);
+    }
+    #plans .accent-line { background: rgba(255,255,255,0.35); }
+    #plans .section-heading { color: #fff; }
+    #plans .section-lead { color: rgba(255,255,255,0.6); max-width: 100%; }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .plan-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 6px;
+      padding: 2rem 1.75rem;
+      transition: background 0.25s;
+    }
+    .plan-card:hover { background: rgba(255,255,255,0.12); }
+    .plan-no {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.6rem;
+    }
+    .plan-name {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      line-height: 1.45;
+    }
+    .plan-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+    .plan-sep {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 1.25rem;
+    }
+    .plan-outcome-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.4rem;
+    }
+    .plan-outcome {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--blue-light);
+    }
+
+    /* ── DETAIL SECTIONS ── */
+    #icu      { background: var(--bg-white); }
+    #tech     { background: var(--bg-page); }
+    #community { background: var(--bg-white); }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .item { margin-bottom: 2rem; }
+    .item:last-child { margin-bottom: 0; }
+
+    .item-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--blue-mid);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.6rem;
+    }
+    .item p {
+      font-size: 0.87rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+
+    .callout {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 6px;
+      padding: 1.75rem 2rem;
+      font-size: 0.87rem;
+      line-height: 1.85;
+    }
+    .callout strong {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      color: var(--blue-light);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    /* roadmap */
+    .roadmap {
+      display: flex;
+      align-items: stretch;
+      gap: 0.6rem;
+      margin: 1.75rem 0;
+    }
+    .rm-step {
+      flex: 1;
+      background: var(--blue-mid);
+      color: #fff;
+      padding: 1rem 1.1rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+    }
+    .rm-step:nth-child(2) { background: #1a3faa; }
+    .rm-step:nth-child(3) { background: var(--navy); }
+    .rm-arrow {
+      display: flex;
+      align-items: center;
+      color: var(--blue-mid);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    /* network diagram */
+    .network-box {
+      background: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .network-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+    .network-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 0.75rem 0;
+    }
+    .network-hub {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.4;
+      flex-shrink: 0;
+    }
+    .network-node {
+      background: var(--bg-white);
+      border: 2px solid var(--blue-mid);
+      border-radius: 5px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .network-badge {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    .network-caption {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.6rem;
+    }
+
+    /* ── TEAM ── */
+    #team { background: var(--bg-page); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .team-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .team-card.featured { border-top: 4px solid var(--blue-mid); }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .avatar.filled {
+      background: linear-gradient(135deg, var(--navy), var(--blue-mid));
+      color: #fff;
+    }
+    .avatar.empty {
+      background: var(--bg-page);
+      color: var(--text-light);
+      border: 2px dashed var(--border);
+      font-size: 1.3rem;
+    }
+    .team-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .team-creds {
+      list-style: none;
+      text-align: left;
+      margin-top: 1rem;
+    }
+    .team-creds li {
+      font-size: 0.77rem;
+      color: var(--text-mid);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .team-creds li:last-child { border-bottom: none; }
+    .team-tba {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin-top: 0.75rem;
+    }
+
+    /* ── CLOSING ── */
+    #closing {
+      background: linear-gradient(155deg, #0b1e3d 0%, #1a3a6b 100%);
+      color: #fff;
+      text-align: center;
+      padding: 7rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #closing::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .closing-inner { position: relative; z-index: 1; }
+    .closing-line {
+      width: 40px;
+      height: 3px;
+      background: rgba(255,255,255,0.3);
+      margin: 0 auto 2.25rem;
+    }
+    .closing-title {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+    .closing-tagline {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em;
+      font-style: italic;
+      margin-bottom: 2.5rem;
+    }
+    .hospital-pill {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 40px;
+      padding: 0.65rem 1.5rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .fade-up.delay-1 { transition-delay: 0.12s; }
+    .fade-up.delay-2 { transition-delay: 0.24s; }
+    .fade-up.delay-3 { transition-delay: 0.36s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .two-col,
+      .vision-grid,
+      .detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .plans-grid  { grid-template-columns: 1fr; }
+      .team-grid   { grid-template-columns: 1fr; }
+      .stat-grid   { grid-template-columns: 1fr 1fr; }
+      .nav-links   { display: none; }
+      .roadmap     { flex-direction: column; gap: 0.4rem; }
+      .rm-arrow    { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-brand">新光急診 &nbsp;·&nbsp; 科部再發展計畫</div>
+  <ul class="nav-links">
+    <li><a href="#legacy">起點</a></li>
+    <li><a href="#vision">願景</a></li>
+    <li><a href="#plans">三大計畫</a></li>
+    <li><a href="#icu">急診加護</a></li>
+    <li><a href="#tech">技術中心</a></li>
+    <li><a href="#community">社區急診</a></li>
+    <li><a href="#team">團隊</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-inner">
+    <p class="hero-sup">新光醫療財團法人 &nbsp;新光吳火獅紀念醫院</p>
+    <h1 class="hero-title">新光醫院急診醫學科</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">科部再發展計畫</p>
+    <p class="hero-tagline">Reinvent the Landscape of Emergency Medicine</p>
+  </div>
+  <div class="hero-caret">▼ &nbsp;向下捲動</div>
+</section>
+
+<!-- ── LEGACY ── -->
+<section id="legacy" class="section">
+  <div class="container">
+    <div class="two-col">
+      <div class="fade-up">
+        <div class="accent-line"></div>
+        <p class="section-tag">歷史與起源</p>
+        <h2 class="section-heading">新光是現今台灣急診的起點</h2>
+        <p class="big-text">急診的下一個時代，<br>也將從這裡開始</p>
+        <p class="body-text">
+          在台灣，有近二分之一的頂尖急診是由新光急診的校友打造。<br><br>
+          許多重大公衛醫療事件，新光急診也扮演了關鍵的角色。<br><br>
+          而下一個時代的台灣急診醫療，也將要從這裡開始。
+        </p>
+      </div>
+      <div class="stat-grid fade-up delay-1">
+        <div class="stat-card">
+          <div class="stat-num">1/2</div>
+          <div class="stat-label">台灣頂尖急診<br>由新光校友打造</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">No.1</div>
+          <div class="stat-label">台灣急診醫學<br>的發展起點</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">核心再發展計畫<br>全面升級布局</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3–5</div>
+          <div class="stat-label">年期技術中心<br>發展架構</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VISION ── -->
+<section id="vision" class="section">
+  <div class="container">
+    <div class="vision-grid">
+      <div class="fade-up">
+        <div class="accent-line"></div>
+        <p class="section-tag">核心願景</p>
+        <h2 class="section-heading">未來的台灣急診<br>會是重要的病患通路</h2>
+        <p class="body-text" style="margin-top:1.25rem;">
+          急診對台灣民眾來說早就不是單純的急重症救治，更像是緊急的醫療健康諮詢接口。
+        </p>
+        <p class="body-text" style="margin-top:1rem;">
+          新光急診這個接口的功能愈強、分布愈廣，就愈能吸引民眾透過這個入口進到新光醫療體系。
+        </p>
+        <p class="body-text" style="margin-top:1rem;">
+          穩定且多樣的病患來源，才能夠維持醫療品質、收入與訓練的永續性，新光醫院會更有本錢去應對未來更險峻的醫療生態變化。
+        </p>
+        <p class="tagline-blue">好的環境、好的品質、隨時可近</p>
+      </div>
+      <div class="fade-up delay-1">
+        <div class="info-box">
+          <h4>為什麼急診是關鍵接口？</h4>
+          <p>
+            民眾在身體不適時，第一個想到的往往就是急診。急診不只是搶救生命的最後防線，更是新光醫療體系的第一扇門。
+          </p>
+          <p style="margin-top:1rem;">
+            強化這扇門的功能與品質，就是強化整個醫療體系的競爭力與永續性，讓新光在台灣醫療版圖中持續扮演領頭羊的角色。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THREE PLANS ── -->
+<section id="plans" class="section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="accent-line"></div>
+      <p class="section-tag" style="color:rgba(255,255,255,0.5);">發展藍圖</p>
+      <h2 class="section-heading">新光急診未來三大發展規畫</h2>
+      <p class="section-lead">從科內分流、技術革新到區域擴展，全面重塑台灣急診的新風貌</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card fade-up delay-1">
+        <div class="plan-no">計畫一</div>
+        <div class="plan-name">加強門內病患的輕重分流</div>
+        <p class="plan-desc">
+          提升醫療品質、減低臨床現場紊亂程度進而提升醫療服務滿意度，同時也避免醫護認知疲倦、提升照護安全。
+        </p>
+        <hr class="plan-sep">
+        <div class="plan-outcome-label">具體方案</div>
+        <div class="plan-outcome">急診加護病房</div>
+      </div>
+      <div class="plan-card fade-up delay-2">
+        <div class="plan-no">計畫二</div>
+        <div class="plan-name">發展最新急症技術</div>
+        <p class="plan-desc">
+          提升醫療品質、改善病患預後並提升醫療服務滿意度，同時也持續維持新光急診專科訓練計畫的吸引力與豐富度。
+        </p>
+        <hr class="plan-sep">
+        <div class="plan-outcome-label">具體方案</div>
+        <div class="plan-outcome">先進與革新急症技術中心</div>
+      </div>
+      <div class="plan-card fade-up delay-3">
+        <div class="plan-no">計畫三</div>
+        <div class="plan-name">增加急診觸角</div>
+        <p class="plan-desc">
+          增加民眾選擇進入新光醫療體系的機會，進而提升醫院營運，同時也能增加醫院主治醫師容額，讓完善訓練的住院醫師得以留下。
+        </p>
+        <hr class="plan-sep">
+        <div class="plan-outcome-label">具體方案</div>
+        <div class="plan-outcome">社區急診基地</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ICU ── -->
+<section id="icu" class="section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="accent-line"></div>
+      <p class="section-tag">計畫一</p>
+      <h2 class="section-heading">急診加護病房</h2>
+      <p class="section-lead">困難的、複雜的、場面浩大的，我們關起門來弄</p>
+    </div>
+    <div class="detail-grid">
+      <div class="fade-up delay-1">
+        <div class="item">
+          <div class="item-title">12 + 2 床急診加護病房</div>
+          <p>其中 12 床為標準加護病房配置，可收治各式內外科病患；2 床為彈性病床，用以日常運行緊急侵入性檢查治療、並當作彈性收治病患使用。</p>
+        </div>
+        <div class="item">
+          <div class="item-title">發展重症早期偵測與預先處置</div>
+          <p>基於急診過往案例庫建立「SKHEW 新光醫院早期預警系統」，讓部分病患在惡化前就已被收入加護病房，實現主動性的重症管理。</p>
+        </div>
+        <div class="item">
+          <div class="item-title">建立院內重症病床的緩衝區</div>
+          <p>在連續假日、夜間，或臨床權責尚不明的時候，可讓危急病患更快進到受控的加護病房環境、提供更好的醫療品質。</p>
+        </div>
+      </div>
+      <div class="fade-up delay-2">
+        <div class="item">
+          <div class="item-title">減低急診現場紊亂程度</div>
+          <p>讓急診可以更快將輕重症病患分開，減少急診看起來像是戰場的時間，進而提升輕症服務品質與輕症病患吸引力。</p>
+        </div>
+        <div class="item">
+          <div class="item-title">避免醫護認知疲倦</div>
+          <p>獨立環境讓醫護全力處理當班所遇到的急重難罕，增加每位病患被醫師與護理師評估的時間與精確程度。</p>
+        </div>
+        <div class="callout">
+          <strong>預期效益</strong>
+          醫護處理起來會更得心應手<br>
+          病患照護品質會更好<br>
+          急診現場環境也會更好、更能吸引輕中症民眾就醫
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TECH CENTER ── -->
+<section id="tech" class="section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="accent-line"></div>
+      <p class="section-tag">計畫二</p>
+      <h2 class="section-heading">先進與革新急症技術中心</h2>
+      <p class="section-lead">我們將實踐創辦人「維持現狀，即是落伍」的創新精神</p>
+    </div>
+    <div class="detail-grid">
+      <div class="fade-up delay-1">
+        <div class="item">
+          <div class="item-title">發展超音波介入治療</div>
+          <p>利用急診加護病房的彈性區域，建立可由超音波執行的各科別侵入性處置環境。處置後須觀察的病患可就地收治，也可以把檢查室、電腦斷層、開刀房留給更多需要的病患。</p>
+        </div>
+        <div class="item">
+          <div class="item-title">急性疼痛神經阻斷</div>
+          <p>可提供疼痛應變小組，為外傷、部分術後，提供超音波導引神經阻斷。另也計畫發展神經阻斷輔助的術後加速復原計畫、讓骨科病患能盡快下床活動。</p>
+        </div>
+        <div class="item">
+          <div class="item-title">急性處置情境的 PSA</div>
+          <p>急診醫學會的鎮靜處置委員會與本院急診密切相關，已計畫承接學會任務、全力發展屬於台灣急性醫療所需要使用的輕中度鎮靜流程。</p>
+        </div>
+      </div>
+      <div class="fade-up delay-2">
+        <div class="item">
+          <div class="item-title">整合現有中心，單一統籌、不同階段任務</div>
+          <p>目前急診非常多臨床實務中心，這些中心在成立當初所代表的都是當時最進步的急診技術。未來將由本中心統籌所有新技術發展，減少臨床醫師的行政負擔。</p>
+        </div>
+        <div class="roadmap">
+          <div class="rm-step">以 3–5 年為架構<br>規劃發展重點</div>
+          <div class="rm-arrow">→</div>
+          <div class="rm-step">利用急診與<br>急診加護病房進行實作</div>
+          <div class="rm-arrow">→</div>
+          <div class="rm-step">產出可轉譯到<br>台灣其他急診的臨床流程</div>
+        </div>
+        <div class="callout">
+          <strong>第一期計畫目標</strong>
+          「影像導引臨床介入」與「符合台灣使用的輕中度鎮靜流程」<br><br>
+          預計會是在 3～5 年內台灣急診醫學重點發展的領域，目前也都是由新光校友領銜發展！
+        </div>
+      </div>
+    </div>
+    <div class="fade-up" style="margin-top:3rem; background:var(--bg-white); border-radius:6px; padding:1.75rem 2rem; text-align:center; border:1px solid var(--border);">
+      <p style="font-size:1rem; font-weight:700; color:var(--navy); line-height:1.7;">
+        急診技術的輸出源頭 &nbsp;·&nbsp; 急重症人才的搖籃 &nbsp;·&nbsp; 民眾與醫療同儕信賴的團隊
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMMUNITY ── -->
+<section id="community" class="section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="accent-line"></div>
+      <p class="section-tag">計畫三</p>
+      <h2 class="section-heading">區域急診基地</h2>
+      <p class="section-lead">讓民眾只要是就醫，就接入新光醫療體系</p>
+    </div>
+    <div class="detail-grid">
+      <div class="fade-up delay-1">
+        <div class="item">
+          <div class="item-title">新光急診為中心的獨立急診網絡 (SKHTN)</div>
+          <p>在新醫療資訊輔助系統的幫助下，建立屬於新光醫療體系自己的快速轉診網路。由急診醫學科備受信賴的主治醫師群，將附近的小型醫院急診室、未來開設的 UCC 納入旗下成新光醫院的社區接口。</p>
+        </div>
+        <div class="item">
+          <div class="item-title">智慧檢傷急診入口</div>
+          <p>透過智慧檢傷評估民眾不舒服時的風險程度，將病患引導入新光醫療體系駐點的快速通道就診。</p>
+        </div>
+        <div class="item">
+          <div class="item-title">EMS 緊急救護訓練中心</div>
+          <p>承接既有 EMS 中心之業務，完善新光醫療體系與政府 EMS 的溝通與協調，並持續提供如以往高品質的相關訓練。</p>
+        </div>
+      </div>
+      <div class="fade-up delay-2">
+        <div class="network-box">
+          <div class="network-title">新光醫療體系社區急診網絡</div>
+          <div class="network-row">
+            <div class="network-node">社區小型醫院</div>
+            <span style="color:var(--blue-mid); font-size:1.2rem;">⇄</span>
+            <div class="network-hub">新光<br>急診</div>
+            <span style="color:var(--blue-mid); font-size:1.2rem;">⇄</span>
+            <div class="network-node">UCC 診所</div>
+          </div>
+          <div class="network-caption">急診團隊進駐 &nbsp;·&nbsp; 報備支援</div>
+          <div class="network-badge">SKHTN 快速轉診網路</div>
+          <div class="network-caption" style="margin-top:0.5rem;">提供遠快於健保醫療體系的綠色通道</div>
+        </div>
+        <div class="callout" style="margin-top:1.5rem;">
+          <strong>策略優勢</strong>
+          鎖定區域廣布接口，讓民眾只要是就醫，就接入新光醫療體系。<br><br>
+          以合作的樣貌進行，不僅高效、立即可行，也會有較好的團隊形象、較彈性的應變能力。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section id="team" class="section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="accent-line"></div>
+      <p class="section-tag">核心成員</p>
+      <h2 class="section-heading">我們的團隊</h2>
+      <p class="section-lead">All from SKHER</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-up delay-1">
+        <div class="avatar empty">？</div>
+        <div class="team-name">即將公布</div>
+        <p class="team-tba">敬請期待</p>
+      </div>
+      <div class="team-card featured fade-up delay-2">
+        <div class="avatar filled">李</div>
+        <div class="team-name">李瑋恩 醫師</div>
+        <ul class="team-creds">
+          <li>台灣急診醫學會急診專科醫師</li>
+          <li>台灣急診醫學會鎮靜止痛工作小組委員</li>
+          <li>新光醫院急診醫學科主治醫師</li>
+          <li>雙和醫院先進與革新急症技術中心<br>創辦團隊暨執行秘書</li>
+        </ul>
+      </div>
+      <div class="team-card fade-up delay-3">
+        <div class="avatar empty">？</div>
+        <div class="team-name">即將公布</div>
+        <p class="team-tba">敬請期待</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLOSING ── -->
+<section id="closing">
+  <div class="container">
+    <div class="closing-inner fade-up">
+      <div class="closing-line"></div>
+      <h2 class="closing-title">急診醫學的未來，<br>總是從新光開始</h2>
+      <p class="closing-tagline">Reinvent the Landscape of Emergency Medicine</p>
+      <div class="hospital-pill">
+        新光醫療財團法人 &nbsp;·&nbsp; 新光吳火獅紀念醫院 &nbsp;·&nbsp; 急診醫學科
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
